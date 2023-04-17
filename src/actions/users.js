@@ -11,14 +11,15 @@ import {
   ADD_USER,
   ADD_ERROR,
   ADD_TODO,
+  LOGIN,
+  LOGIN_ERROR,
+  LOGOUT,
 } from "../actions/types";
 
 //Get all users
 export const getUsers = () => async dispatch => {
   try {
-    const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/users`
-    );
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/users`);
 
     dispatch({
       type: GET_USERS,
@@ -35,7 +36,7 @@ export const getUsers = () => async dispatch => {
 export const getUserById = id => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/users/${id}`
+      `https://jsonplaceholder.typicode.com/users/${id}`
     );
 
     dispatch({
@@ -53,7 +54,7 @@ export const getUserById = id => async dispatch => {
 export const getUserByUsername = username => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/users?username=${username}`
+      `https://jsonplaceholder.typicode.com/users?username=${username}`
     );
 
     dispatch({
@@ -71,7 +72,7 @@ export const getUserByUsername = username => async dispatch => {
 export const getUserByEmail = email => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/users?email=${email}`
+      `https://jsonplaceholder.typicode.com/users?email=${email}`
     );
 
     dispatch({
@@ -132,12 +133,14 @@ export const addUser = formData => async dispatch => {
       formData,
       config
     );
+    console.log(res.data);
 
     dispatch({
       type: ADD_USER,
       payload: res.data,
     });
   } catch (err) {
+    console.log(err);
     dispatch({
       type: ADD_ERROR,
     });
@@ -165,6 +168,33 @@ export const addTodo = formData => async dispatch => {
   } catch (err) {
     dispatch({
       type: ADD_ERROR,
+    });
+  }
+};
+
+//Login user
+export const loginUser = formData => async dispatch => {
+  try {
+    dispatch({
+      type: LOGIN,
+      payload: formData,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGIN_ERROR,
+    });
+  }
+};
+
+//Logout
+export const logout = () => async dispatch => {
+  try {
+    dispatch({
+      type: LOGOUT,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGIN_ERROR,
     });
   }
 };

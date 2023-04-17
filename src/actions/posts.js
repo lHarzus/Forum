@@ -16,9 +16,7 @@ import {
 //Get all posts
 export const getPosts = () => async dispatch => {
   try {
-    const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/posts`
-    );
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/posts`);
 
     dispatch({
       type: GET_POSTS,
@@ -35,7 +33,7 @@ export const getPosts = () => async dispatch => {
 export const getPostById = id => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/posts/${id}`
+      `https://jsonplaceholder.typicode.com/posts/${id}`
     );
 
     dispatch({
@@ -53,7 +51,7 @@ export const getPostById = id => async dispatch => {
 export const getPostByUserId = userId => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/posts?userId=${userId}`
+      `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
     );
 
     dispatch({

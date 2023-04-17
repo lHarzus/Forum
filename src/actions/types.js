@@ -31,3 +31,7 @@ export const PHOTO_ERROR = "PHOTO_ERROR";
 export const PHOTOS_ERROR = "PHOTOS_ERROR";
 export const ADD_PHOTO = "ADD_PHOTO";
 export const ADD_ALBUM = "ADD_ALBUM";
+
+export const LOGIN = "LOGIN";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+export const LOGOUT = "LOGOUT";

@@ -4,6 +4,8 @@
   --color-secondary: #ff6000;
   --color-tertiary: #ffa559;
   --color-accent: #ffe6c7;
+  --color-background: #292929;
+  --color-text: #aaaaaa;
 }
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 *,
@@ -37,14 +39,165 @@ body {
 
 h1 {
   font-size: 4rem;
-  color: var(--color-accent);
+  color: white;
 }
 
 h2 {
   font-size: 2rem;
-  color: #2da2b9;
+  color: var(--color-secondary);
 }
 
 p.bold {
   font-weight: bold;
+}
+
+/*Buttons*/
+.btn {
+  border: none;
+  color: white;
+  background: var(--color-secondary) !important;
+  padding: 0 3rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--color-tertiary) !important;
+}
+
+/*Header*/
+.header {
+  background-image: url(/src/images/bg.jpg);
+  height: 30vh;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.header a:hover {
+  color: var(--color-secondary);
+  transition: all 0.3;
+  text-shadow: 0px 0px 20px #ffffff;
+}
+
+.header-other a {
+  padding-right: 3rem;
+}
+
+/*Landing*/
+
+.body {
+  background: var(--color-primary);
+}
+
+.posts,
+.albums {
+  padding: 5rem;
+}
+
+.posts h1:hover > i,
+.albums h1:hover > i {
+  padding: 3rem;
+  transition: padding 0.2s;
+}
+
+.posts h1 i,
+.albums h1 i {
+  transition: padding 0.2s;
+}
+
+.posts h1,
+.albums h1 {
+  cursor: pointer;
+}
+
+.posts-area,
+.albums-area {
+  background-color: var(--color-background);
+  padding: 1rem;
+  cursor: pointer;
+  gap: 1px;
+}
+
+.post,
+.album {
+  position: relative;
+  padding: 1rem 1rem 5rem 1rem;
+  margin: 1rem 0;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.post:hover,
+.album:hover {
+  background-color: #585858;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0px;
+}
+
+.album img {
+  width: 10%;
+  margin: 1rem 0;
+}
+
+.album span {
+  text-align: right !important;
+}
+
+.title {
+  height: 7rem;
+  border-bottom: 1px solid var(--color-tertiary);
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .posts-area,
+  .albums-area {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+  }
+
+  .post,
+  .album {
+    margin: 0;
+  }
+}
+
+/*Register*/
+.register {
+  background: var(--color-background);
+  height: 70vh;
+  padding: 5rem 10rem;
+  text-align: center;
+}
+
+.register p {
+  color: var(--color-text);
+}
+
+.register input {
+  background-color: var(--color-tertiary);
+  padding: 1rem;
+  border-radius: 20px;
+  margin-left: 5rem;
+  margin: 1rem;
+  width: 50rem;
+}
+
+.input-adress input {
+}
+
+@media screen and (min-width: 768px) {
 }

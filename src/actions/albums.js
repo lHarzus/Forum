@@ -11,13 +11,12 @@ import {
   ADD_ERROR,
   ADD_ALBUM,
 } from "../actions/types";
+import axios from "axios";
 
 //Get all Albums
 export const getAlbums = () => async dispatch => {
   try {
-    const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/albums`
-    );
+    const res = await axios.get(`https://jsonplaceholder.typicode.com/albums`);
 
     dispatch({
       type: GET_ALBUMS,
@@ -34,7 +33,7 @@ export const getAlbums = () => async dispatch => {
 export const getAlbumById = id => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/albums/${id}`
+      `https://jsonplaceholder.typicode.com/albums/${id}`
     );
 
     dispatch({
@@ -52,7 +51,7 @@ export const getAlbumById = id => async dispatch => {
 export const getPostByUserId = userId => async dispatch => {
   try {
     const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/guide/albums?userId=${userId}`
+      `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
     );
 
     dispatch({

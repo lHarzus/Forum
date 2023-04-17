@@ -10,6 +10,9 @@ import {
   ADD_USER,
   ADD_ERROR,
   ADD_TODO,
+  LOGIN,
+  LOGIN_ERROR,
+  LOGOUT,
 } from "../actions/types";
 
 const initialState = {
@@ -17,6 +20,8 @@ const initialState = {
   user: null,
   todo: [],
   todos: [],
+  logged: false,
+  account: null,
 };
 
 export default function Alert(state = initialState, action) {
@@ -25,22 +30,22 @@ export default function Alert(state = initialState, action) {
     case GET_USERS:
       return {
         ...state,
-        users: payload,
+        users: [...state.users, ...payload],
       };
     case GET_USER:
       return {
         ...state,
-        user: payload,
+        user: [...state.user, payload],
       };
     case GET_TODOS:
       return {
         ...state,
-        todos: payload,
+        todos: [...state.todos, ...payload],
       };
     case GET_TODO:
       return {
         ...state,
-        todo: payload,
+        todo: [...state.todo, payload],
       };
     case ADD_USER:
       return {
@@ -54,12 +59,25 @@ export default function Alert(state = initialState, action) {
         todos: [...state.todos, payload],
         todo: payload,
       };
+    case LOGIN:
+      return {
+        ...state,
+        account: payload,
+        logged: true,
+      };
     case ADD_ERROR:
     case TODOS_ERROR:
     case TODO_ERROR:
     case USERS_ERROR:
     case USER_ERROR:
       return state;
+    case LOGOUT:
+    case LOGIN_ERROR:
+      return {
+        ...state,
+        account: null,
+        logged: false,
+      };
     default:
       return state;
   }
