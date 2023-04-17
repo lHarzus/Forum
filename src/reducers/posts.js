@@ -52,7 +52,7 @@ export default function Alert(state = initialState, action) {
       return {
         ...state,
         comments: [...state.comments, payload],
-        comment: payload,
+        comment: [...state.comment, payload],
       };
     case ADD_ERROR:
     case COMMENTS_ERROR:

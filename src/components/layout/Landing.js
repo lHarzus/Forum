@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { getPosts, getComments } from "../../actions/posts";
 import { getAlbums, getPhotos } from "../../actions/albums";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Landing = ({
   getPosts,
@@ -12,22 +13,29 @@ const Landing = ({
   posts: { posts, comments },
   albums: { albums, photos },
 }) => {
+  const navigate = useNavigate();
   useEffect(() => {
     getPosts();
     getComments();
     getAlbums();
     getPhotos();
   }, []);
+  const navigateTo = path => {
+    navigate(path);
+  };
   return (
     <div className="body">
       <div className="posts">
-        <h1>
+        <h1 onClick={() => navigateTo("/posts")}>
           Posts <i className="bi bi-arrow-right"></i>
         </h1>
         <div className="posts-area">
           {Array.from(Array(6).keys()).map(i =>
             posts[i] ? (
-              <div className="post" key={i}>
+              <div
+                className="post"
+                key={i}
+                onClick={() => navigateTo(`/post/${posts[i].id}`)}>
                 <h2 className="title">{posts[i].title}</h2>
                 <p>{posts[i].body}</p>
                 <p className="bottom">
@@ -42,13 +50,16 @@ const Landing = ({
         </div>
       </div>
       <div className="albums">
-        <h1>
+        <h1 onClick={() => navigateTo("/albums")}>
           Albums <i className="bi bi-arrow-right"></i>
         </h1>
         <div className="albums-area">
           {Array.from(Array(6).keys()).map(i =>
             albums[i] ? (
-              <div className="album" key={i}>
+              <div
+                className="album"
+                key={i}
+                onClick={() => navigateTo(`/album/${albums[i].id}`)}>
                 <h2 className="title">{albums[i].title}</h2>
                 <img
                   src={

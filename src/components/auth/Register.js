@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { addUser } from "../../actions/users";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ addUser }) => {
+const Register = ({ addUser, users: { logged } }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (logged) {
+      navigate("/");
+    }
+  }, []);
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -129,6 +136,11 @@ const Register = ({ addUser }) => {
 
 Register.propTypes = {
   addUser: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
 };
 
-export default connect(null, { addUser })(Register);
+const mapStateToProps = state => ({
+  users: state.users,
+});
+
+export default connect(mapStateToProps, { addUser })(Register);

@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { loginUser, getUsers } from "../../actions/users";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Register = ({ loginUser, getUsers, users: { users, user } }) => {
+const Register = ({ loginUser, getUsers, users: { users, logged } }) => {
+  const navigate = useNavigate();
   useEffect(() => {
+    if (logged) {
+      navigate("/");
+    }
     getUsers();
   }, []);
   const [formData, setFormData] = useState({
     username: "",
     email: "",
   });
+  const [error, setError] = useState(false);
   const { username, email } = formData;
   const onChange = e => {
     e.preventDefault();
@@ -19,11 +25,12 @@ const Register = ({ loginUser, getUsers, users: { users, user } }) => {
   const onSubmit = e => {
     e.preventDefault();
     const res = users.filter(u => u.username === username && u.email === email);
-    console.log(res);
     if (res.length >= 1) {
       loginUser(res[0]);
+      navigate("/");
     } else {
-      console.log("error");
+      setError(true);
+      setTimeout(() => setError(false), 5000);
     }
     setFormData({ username: "", email: "" });
   };
@@ -53,6 +60,8 @@ const Register = ({ loginUser, getUsers, users: { users, user } }) => {
         </div>
         <input className="btn" type="submit" value="Submit"></input>
       </form>
+
+      {error ? <h2>Dados inválidos</h2> : ""}
     </div>
   );
 };
@@ -60,6 +69,7 @@ const Register = ({ loginUser, getUsers, users: { users, user } }) => {
 Register.propTypes = {
   loginUser: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
