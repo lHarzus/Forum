@@ -11,7 +11,7 @@ const FullPost = ({
   getPostById,
   getCommentsByPostid,
   addComment,
-  users: { account, logged },
+  users: { account, logged, users },
   posts: { post, comment },
 }) => {
   const id = window.location.pathname.split("/")[2];
@@ -41,8 +41,11 @@ const FullPost = ({
   return (
     <div className="all-posts">
       <div className="full-post">
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
+        <p className="post-author">
+          Author: {users.filter(u => u.id === post.userId)[0].name}
+        </p>
+        <p className="post-title">Title: {post.title}</p>
+        <p className="post-body">Title: {post.body}</p>
       </div>
 
       <div className="comments">

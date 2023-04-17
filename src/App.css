@@ -266,3 +266,28 @@ p.bold {
   text-align: left;
   border-radius: 5px;
 }
+
+.full-post {
+  background: var(--color-primary);
+  border-radius: 20px;
+  text-align: left;
+  padding: 2rem;
+}
+
+.post-author {
+  color: var(--color-secondary);
+  font-size: 2rem;
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.post-title {
+  padding: 1rem 0;
+  color: var(--color-tertiary);
+}
+
+.post-body {
+  padding: 1rem 1rem;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid var(--color-text);
+}
