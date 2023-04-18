@@ -8,6 +8,7 @@ import Register from "./components/auth/Register";
 import Posts from "./components/posts/Posts";
 import Albums from "./components/albums/Albums";
 import FullPost from "./components/posts/FullPost";
+import FullAlbums from "./components/albums/FullAlbums";
 //Redux
 import { Provider } from "react-redux";
 import store from "./store";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/albums" element={<Albums />} />
           <Route path="/post/:param" element={<FullPost />} />
+          <Route path="/album/:param" element={<FullAlbums />} />
         </Routes>
       </Router>
     </Provider>

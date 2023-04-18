@@ -291,3 +291,69 @@ p.bold {
   border-radius: 5px;
   border: 1px solid var(--color-text);
 }
+
+/*Galery*/
+
+.galery {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.galery img {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid var(--color-background);
+}
+
+.galery img:hover {
+  border: 3px solid var(--color-background);
+}
+
+.galery-item {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+}
+
+.galery-item i {
+  color: white;
+  font-size: 4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.galery-item i:hover {
+  color: var(--color-secondary);
+  transition: color 0.2s;
+}
+
+.galery-item-img {
+  margin: 20vh 30vw;
+}
+
+.galery-item-img img {
+  width: 40vw;
+}
+
+.left {
+  position: absolute;
+  margin: 50vh 25vw;
+}
+
+.right {
+  position: absolute;
+  margin: 50vh 73vw;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  margin: 0 95vw;
+}
+
+.invisible {
+  display: none;
+}

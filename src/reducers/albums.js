@@ -52,7 +52,7 @@ export default function Alert(state = initialState, action) {
       return {
         ...state,
         photos: [...state.photos, payload],
-        photo: payload,
+        photo: [...state.photo, payload],
       };
     case ADD_ERROR:
     case PHOTOS_ERROR:

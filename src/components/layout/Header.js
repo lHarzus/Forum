@@ -14,7 +14,7 @@ const Header = ({ users: { logged }, logout }) => {
           </div>
           <div className="header-other">
             <p onClick={() => logout()}>
-              Logout <i class="bi bi-box-arrow-right"></i>
+              Logout <i className="bi bi-box-arrow-right"></i>
             </p>
           </div>
         </Fragment>
@@ -26,7 +26,7 @@ const Header = ({ users: { logged }, logout }) => {
           <div className="header-other">
             <Link to="/Register">Register</Link>
             <Link to="/Login">
-              Login<i class="bi bi-box-arrow-in-left"></i>
+              Login<i className="bi bi-box-arrow-in-left"></i>
             </Link>
           </div>
         </Fragment>
