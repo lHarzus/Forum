@@ -107,6 +107,7 @@ p.bold {
 .body {
   background: var(--color-primary);
   min-height: 70vh;
+  padding-bottom: 5rem;
 }
 
 .posts,
@@ -443,5 +444,118 @@ p.bold {
 
   .profile-menu {
     width: 13%;
+  }
+}
+
+/*Landing Page*/
+
+.forum-body {
+  margin: 5vh 10vw;
+}
+
+.forum-categories {
+  background-color: #5a5a5a;
+  box-shadow: 1px 1px 10px 5px rgb(44, 44, 44);
+  color: white;
+}
+
+.forum-category {
+  padding: 1rem;
+  border-top: 1px solid rgb(160, 160, 160, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+}
+
+.forum-category:hover,
+.forum-category-selected,
+.forum-content-post:hover {
+  border-top: 1px solid var(--color-secondary);
+  border-bottom: 1px solid var(--color-secondary);
+}
+
+.forum-content {
+}
+
+.forum-content-post {
+  padding: 1rem 3rem;
+  border-top: 1px solid rgb(160, 160, 160, 0.2);
+  border-bottom: 1px solid rgb(150, 150, 150, 0.2);
+  cursor: pointer;
+}
+
+.forum-post-title {
+  margin: 1rem 0;
+}
+
+.forum-post-body {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.forum-post-body i {
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .forum-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .forum-categories {
+    width: 15vw;
+  }
+
+  .forum-content {
+    width: 55vw;
+  }
+
+  .forum-post-body {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/*Pagination*/
+
+.pagination {
+  text-align: center;
+}
+
+.pagination i {
+  font-size: 3.5rem;
+  padding: 0 5px;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.pagination i:hover {
+  color: var(--color-tertiary);
+}
+
+.disabled {
+  color: #585858 !important;
+}
+
+.page {
+  border: 1px solid var(--color-text);
+  margin: 5px;
+  border-radius: 50px;
+  padding: 7px 10px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.page:hover,
+.page-selected {
+  color: var(--color-primary);
+  background: var(--color-text);
+}
+
+@media screen and (min-width: 768px) {
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
