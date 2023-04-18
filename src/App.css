@@ -107,7 +107,7 @@ p.bold {
 .body {
   background: var(--color-primary);
   min-height: 70vh;
-  padding-bottom: 5rem;
+  padding: 5rem 0;
 }
 
 .posts,
@@ -276,6 +276,15 @@ p.bold {
   border-radius: 5px;
 }
 
+.comment-owner {
+  margin: 1%;
+  padding: 3rem 1rem;
+  border: 1px solid var(--color-tertiary);
+  color: var(--color-text);
+  text-align: left;
+  border-radius: 5px;
+}
+
 .full-post {
   background: var(--color-primary);
   border-radius: 20px;
@@ -294,11 +303,19 @@ p.bold {
   color: var(--color-tertiary);
 }
 
-.post-body {
+.post-body2 {
   padding: 1rem 1rem;
   color: white;
   border-radius: 5px;
   border: 1px solid var(--color-text);
+}
+
+.post-body {
+  padding: 1rem 1rem;
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(150, 150, 150);
+  box-shadow: 1px 1px 5px 5px #8f8f8f;
 }
 
 /*Galery*/

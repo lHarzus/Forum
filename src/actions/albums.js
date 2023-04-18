@@ -83,7 +83,6 @@ export const getPhotos = () => async dispatch => {
 
 //Get Photos by Album id
 export const getPhotosByAlbumid = albumId => async dispatch => {
-  console.log(albumId);
   try {
     const res = await axios.get(
       `https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`

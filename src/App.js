@@ -5,8 +5,6 @@ import Landing from "./components/layout/Landing";
 import Header from "./components/layout/Header";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Posts from "./components/posts/Posts";
-import Albums from "./components/albums/Albums";
 import FullPost from "./components/posts/FullPost";
 import FullAlbums from "./components/albums/FullAlbums";
 import Profile from "./components/auth/Profile";
@@ -23,8 +21,6 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/albums" element={<Albums />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/post/:param" element={<FullPost />} />
           <Route path="/album/:param" element={<FullAlbums />} />

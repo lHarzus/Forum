@@ -15,7 +15,7 @@ const FullAlbums = ({
   addPhoto,
   getUsers,
   users: { account, logged, users },
-  albums: { photo, album, albums },
+  albums: { photo, album },
 }) => {
   const id = window.location.pathname.split("/")[2];
   useEffect(() => {
@@ -126,6 +126,7 @@ const FullAlbums = ({
               <div className="galery">
                 {photo.map((p, i) => (
                   <img
+                    key={i}
                     src={p.url}
                     onClick={() => {
                       onClick(i);
