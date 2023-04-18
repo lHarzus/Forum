@@ -13,6 +13,9 @@ const Header = ({ users: { logged }, logout }) => {
             <Link to="/">Home</Link>
           </div>
           <div className="header-other">
+            <Link to="/profile">
+              Profile <i className="bi bi-person"></i>
+            </Link>
             <p onClick={() => logout()}>
               Logout <i className="bi bi-box-arrow-right"></i>
             </p>
